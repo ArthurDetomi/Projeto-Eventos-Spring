@@ -3,7 +3,7 @@ package com.br.eventoapp.api.model;
 import com.br.eventoapp.api.domain.entity.Evento;
 
 public class EventoModel {
-
+	
 	private String nome;
 
 	private String local;
@@ -11,6 +11,17 @@ public class EventoModel {
 	private String data;
 
 	private String horario;
+	
+	public EventoModel() {
+		
+	}
+	
+	public EventoModel(Evento evento) {
+		this.nome = evento.getName();
+		this.horario = evento.getHorario();
+		this.data = evento.getData();
+		this.local = evento.getLocal();
+	}
 
 	public Evento converter() {
 		Evento evento = new Evento();
