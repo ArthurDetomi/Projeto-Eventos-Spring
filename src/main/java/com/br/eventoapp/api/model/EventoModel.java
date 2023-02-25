@@ -1,14 +1,25 @@
 package com.br.eventoapp.api.model;
 
+import com.br.eventoapp.api.domain.entity.Evento;
+
 public class EventoModel {
-	
+
 	private String nome;
-	
+
 	private String local;
-	
+
 	private String data;
-	
+
 	private String horario;
+
+	public Evento converter() {
+		Evento evento = new Evento();
+		evento.setName(nome);
+		evento.setLocal(local);
+		evento.setData(data);
+		evento.setHorario(horario);
+		return evento;
+	}
 
 	public String getNome() {
 		return nome;
@@ -41,7 +52,5 @@ public class EventoModel {
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
-	
-	
-	
+
 }

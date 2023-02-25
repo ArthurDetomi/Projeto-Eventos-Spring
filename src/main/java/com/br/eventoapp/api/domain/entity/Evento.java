@@ -1,7 +1,6 @@
 package com.br.eventoapp.api.domain.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,29 +8,27 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "eventos")
 public class Evento implements Serializable {
-	
-	
+
 	private static final long serialVersionUID = 1L;
 
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name = "nome", nullable = false)
+
+	@Column(name = "nome")
 	private String name;
-	
+
 	@Column(name = "local")
 	private String local;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date data;
-	
+
+	private String data;
+
+	private String horario;
+
 	public Integer getId() {
 		return id;
 	}
@@ -56,13 +53,20 @@ public class Evento implements Serializable {
 		this.local = local;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
-	
-	
+
+	public String getHorario() {
+		return horario;
+	}
+
+	public void setHorario(String horario) {
+		this.horario = horario;
+	}
+
 }
