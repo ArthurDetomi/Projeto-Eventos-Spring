@@ -1,6 +1,6 @@
 package com.br.eventoapp.api.model;
 
-public class Evento {
+public class EventoModel {
 	
 	private String nome;
 	
