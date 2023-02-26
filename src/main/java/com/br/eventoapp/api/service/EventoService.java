@@ -28,4 +28,12 @@ public class EventoService {
 		return mv;
 	}
 
+	public ModelAndView getDetalhesEvento(Integer id) {
+		Evento evento = eventoRepository.getReferenceById(id);
+		EventoModel eventoModel = new EventoModel(evento);
+		ModelAndView mv = new ModelAndView("evento/detalhesEvento");
+		mv.addObject("evento", eventoModel);
+		return mv;
+	}
+
 }

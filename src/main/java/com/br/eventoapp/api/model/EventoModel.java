@@ -4,6 +4,8 @@ import com.br.eventoapp.api.domain.entity.Evento;
 
 public class EventoModel {
 	
+	private Integer id;
+	
 	private String nome;
 
 	private String local;
@@ -17,6 +19,7 @@ public class EventoModel {
 	}
 	
 	public EventoModel(Evento evento) {
+		this.id = evento.getId();
 		this.nome = evento.getName();
 		this.horario = evento.getHorario();
 		this.data = evento.getData();
@@ -30,6 +33,10 @@ public class EventoModel {
 		evento.setData(data);
 		evento.setHorario(horario);
 		return evento;
+	}
+	
+	public Integer getId() {
+		return id;
 	}
 
 	public String getNome() {
