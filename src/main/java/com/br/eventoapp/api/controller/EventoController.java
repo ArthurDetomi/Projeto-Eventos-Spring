@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.br.eventoapp.api.model.ConvidadoModel;
 import com.br.eventoapp.api.model.EventoModel;
 import com.br.eventoapp.api.service.EventoService;
 
@@ -27,14 +28,19 @@ public class EventoController {
 		return "redirect:/cadastrarEvento";
 	}
 
-	@RequestMapping(value = "/eventos")
+	@RequestMapping(value = "/eventos", method = RequestMethod.GET)
 	public ModelAndView listaEventos() {
 		return eventoService.getListaEventos();
 	}
 	
-	@RequestMapping(value = "/{id}")
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView detalhesEvento(@PathVariable("id") int id) {
 		return eventoService.getDetalhesEvento(id);
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	public String cadastrarConvidado(@PathVariable("id") int id, ConvidadoModel convidadoModel) {
+		return eventoService.cadastrarConvidado(id, convidadoModel);
 	}
 
 }

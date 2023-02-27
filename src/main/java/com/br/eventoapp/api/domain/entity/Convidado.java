@@ -1,27 +1,31 @@
 package com.br.eventoapp.api.domain.entity;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
-public class Convidado {
-	
+@Table(name = "convidados")
+public class Convidado implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String nome;
-	
+
 	private String rg;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "evento_id")
 	private Evento evento;
-	
+
 	public Evento getEvento() {
 		return evento;
 	}
@@ -53,5 +57,5 @@ public class Convidado {
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
-	
+
 }

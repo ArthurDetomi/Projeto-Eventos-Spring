@@ -8,7 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -31,9 +30,8 @@ public class Evento implements Serializable {
 	private String data;
 
 	private String horario;
-	
+
 	@OneToMany
-	@JoinColumn(name = "convidados_id")
 	private List<Convidado> convidados;
 
 	public Integer getId() {
