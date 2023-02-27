@@ -29,7 +29,9 @@
 				<p>Horário : <span th:text="${evento.horario}"></span></p>
 			</div>	
 			
-			<form method="post" class="container">
+			<th:block th:include="mensagemValidacao"></th:block>
+			
+			<form method="post">
 				Nome :<input type="text" value="" name="nomeConvidado">
 				Rg: <input type="text" value="" name="rg">
 			

@@ -48,12 +48,11 @@ public class EventoService {
 	}
 
 	public String cadastrarConvidado(int id, ConvidadoModel convidadoModel) {
-		Evento evento = eventoRepository.getReferenceById(id);
+		Evento evento = eventoRepository.getReferenceById(id);	
 		Convidado convidado = convidadoModel.converter();
 		convidado.setEvento(evento);
 		
 		convidadoRepository.save(convidado);
-		
 		return "redirect:/{id}";
 	}
 

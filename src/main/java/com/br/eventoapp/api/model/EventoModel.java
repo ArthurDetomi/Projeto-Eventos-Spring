@@ -2,16 +2,21 @@ package com.br.eventoapp.api.model;
 
 import com.br.eventoapp.api.domain.entity.Evento;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class EventoModel {
 	
 	private Integer id;
 	
+	@NotBlank
 	private String nome;
-
+	
+	@NotBlank
 	private String local;
-
+	
+	@NotBlank
 	private String data;
-
+	
 	private String horario;
 	
 	public EventoModel() {

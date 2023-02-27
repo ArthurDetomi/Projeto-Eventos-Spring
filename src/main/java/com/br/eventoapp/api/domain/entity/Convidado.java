@@ -2,6 +2,7 @@ package com.br.eventoapp.api.domain.entity;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,9 +19,11 @@ public class Convidado implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+	
+	@Column(name = "nome", nullable = false)
 	private String nome;
-
+	
+	@Column(name = "rg", nullable = false)
 	private String rg;
 
 	@ManyToOne
