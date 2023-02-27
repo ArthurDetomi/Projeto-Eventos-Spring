@@ -1,12 +1,15 @@
 package com.br.eventoapp.api.domain.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,6 +31,10 @@ public class Evento implements Serializable {
 	private String data;
 
 	private String horario;
+	
+	@OneToMany
+	@JoinColumn(name = "convidados_id")
+	private List<Convidado> convidados;
 
 	public Integer getId() {
 		return id;
