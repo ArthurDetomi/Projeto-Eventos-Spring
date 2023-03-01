@@ -21,14 +21,16 @@ public class Evento implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "nome")
+	@Column(name = "nome", nullable = false)
 	private String name;
 
-	@Column(name = "local")
+	@Column(name = "local", nullable = false)
 	private String local;
-
+	
+	@Column(name = "data", nullable = false)
 	private String data;
-
+	
+	@Column(name = "horario", nullable = false)
 	private String horario;
 
 	@OneToMany
