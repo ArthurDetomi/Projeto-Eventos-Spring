@@ -12,39 +12,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta charset="UTF-8">
 		
+		<link type="text/css" rel="stylesheet" href="style/style.css"/>
 		<title>Evento App</title>
 	</head>
 	<body>
-		<h1>Cadastro de Eventos</h1>
-		<h3>
-			<a href="/eventos" class="waves-effect waves-light btn"><i
-			class="material-icons left">format_list_bulleted</i>Lista de Eventos</a>
-		</h3>
-		
+		<header>
+		  	<nav>
+			    <div class="nav-wrapper">
+			      <a href="#" class="brand-logo">Cadastrar Evento</a>
+			      <ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a href="/eventos" class="waves-effect waves-light btn"><i
+			class="material-icons left">format_list_bulleted</i>Lista de Eventos</a></li>
+			      </ul>
+			    </div>    
+	  		</nav>
+		</header>
+				
 		<th:block th:include="mensagemValidacao" />
-		
-		<form class="container" method="post">
-			<div class="row">
-				<div class="input-field col s12">
-					Nome: <input type="text" name="nome" value=""> 	
+		<div class="container formEvento">
+			<form class="row"  method="post">
+				<div class="row">
+					<div class="input-field col s12">
+						Nome: <input type="text" name="nome" value=""> 	
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-					Local: <input type="text" name="local" value="">
+				<div class="row">
+					<div class="input-field col s6">
+						Local: <input type="text" name="local" value="">
+					</div>
+					
+					<div class="input-field col s3">
+						Data : <input type="date" name="data" value="">
+					</div>
+					
+					<div class="input-field col s3">
+						Horário : <input type="time" name="horario" value="">
+					</div>
 				</div>
-				
-				<div class="input-field col s3">
-					Data : <input type="date" name="data" value="">
-				</div>
-				
-				<div class="input-field col s3">
-					Horário : <input type="text" name="horario" value="">
-				</div>
-			</div>
-	
-			<button class="waves-effect waves-light btn" type="submit" >Salvar</button>
-		</form>
+				<button class="waves-effect waves-light btn" type="submit" >Salvar</button>
+			</form>
+		</div>	
 		<!--JavaScript at end of body for optimized loading-->
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 	</body>
