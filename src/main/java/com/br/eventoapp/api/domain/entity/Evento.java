@@ -3,6 +3,7 @@ package com.br.eventoapp.api.domain.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Evento implements Serializable {
 	@Column(name = "horario", nullable = false)
 	private String horario;
 
-	@OneToMany
+	@OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
 	private List<Convidado> convidados;
 
 	public Integer getId() {
