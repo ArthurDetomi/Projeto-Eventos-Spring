@@ -27,8 +27,15 @@ public class EventoController {
 	}
 
 	@RequestMapping(value = "/cadastrarEvento", method = RequestMethod.POST)
-	public String formCadastration(EventoModel eventoModel) {
+	public String formCadastration(@Valid EventoModel eventoModel, BindingResult result, //
+			RedirectAttributes atributes) {
+		if (result.hasErrors()) {
+			atributes.addFlashAttribute("mensagem", "Verifique os campos");
+			return "redirect:/cadastrarEvento";
+		}
+		
 		eventoService.cadastrarEvento(eventoModel);
+		atributes.addFlashAttribute("mensagem", "Evento cadastrado com sucesso!");
 		return "redirect:/cadastrarEvento";
 	}
 
@@ -36,21 +43,21 @@ public class EventoController {
 	public ModelAndView listaEventos() {
 		return eventoService.getListaEventos();
 	}
-	
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView detalhesEvento(@PathVariable("id") int id) {
 		return eventoService.getDetalhesEvento(id);
 	}
-	
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String cadastrarConvidado(@PathVariable("id") int id, @Valid ConvidadoModel convidadoModel, 
+	public String cadastrarConvidado(@PathVariable("id") int id, @Valid ConvidadoModel convidadoModel,
 			BindingResult result, RedirectAttributes atributes) {
 		if (result.hasErrors()) {
 			atributes.addFlashAttribute("mensagem", "Verifique os campos");
-		    return "redirect:/{id}";
+			return "redirect:/{id}";
 		}
 		
-		atributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso");		
+		atributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso");
 		return eventoService.cadastrarConvidado(id, convidadoModel);
 	}
 

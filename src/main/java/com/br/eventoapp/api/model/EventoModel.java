@@ -17,6 +17,7 @@ public class EventoModel {
 	@NotBlank
 	private String data;
 	
+	@NotBlank
 	private String horario;
 	
 	public EventoModel() {
