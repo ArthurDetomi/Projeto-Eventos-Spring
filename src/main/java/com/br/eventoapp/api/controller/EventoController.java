@@ -48,6 +48,11 @@ public class EventoController {
 	public ModelAndView detalhesEvento(@PathVariable("id") int id) {
 		return eventoService.getDetalhesEvento(id);
 	}
+	
+	@RequestMapping(value = "/{id}/deletar", method = RequestMethod.GET)
+	public String deletarEvento(@PathVariable("id") int id) {
+		return eventoService.deletarEvento(id);
+	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	public String cadastrarConvidado(@PathVariable("id") int id, @Valid ConvidadoModel convidadoModel,

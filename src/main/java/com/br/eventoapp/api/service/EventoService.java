@@ -56,4 +56,10 @@ public class EventoService {
 		return "redirect:/{id}";
 	}
 
+	public String deletarEvento(int id) {
+		Evento evento = eventoRepository.getReferenceById(id);
+		eventoRepository.delete(evento);
+		return "redirect:/eventos";
+	}
+
 }
